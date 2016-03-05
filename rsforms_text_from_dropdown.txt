@@ -1,0 +1,22 @@
+Code to save the text from a dropdown field in addition to the value(useful when you need the value and also the text in separate fields)
+
+Step 1: add this code to the Attribute field in the dropdown form field:
+onchange="getText('put_your_dropdown_field_name_here');"
+
+Step 2: add a hidden field to your form to hold the dropdown text
+
+Step 3: add this code to the form Properties in the Javascript box:
+
+<script>
+function getText(fieldname)
+{
+var index  = document.getElementById(fieldname).selectedIndex;
+var option = document.getElementById(fieldname).options[index];
+document.getElementById('put_your_hidden_field_name_here').value = option.text;
+}
+</script>
+
+Now when your dropdown is changed, you hidden field will receive the text of the dropdown for its value
+This way you can see both in your submissions
+
+This was adapted from the RSForms forum but that code didn't work (mucho typos)
